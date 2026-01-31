@@ -37,11 +37,11 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
                 return;
             }
 
-            m_InputReader.OnMoveEvent.AddListener(HandleMove);
-            m_InputReader.OnSprintEvent.AddListener(HandleSprint);
-            m_InputReader.OnLookEvent.AddListener(HandleLook);
-            m_InputReader.OnJumpEvent.AddListener(HandleJump);
-            m_InputReader.OnInteractEvent.AddListener(HandleInteract);
+            m_InputReader.OnMoveEvent.AddListener(HandleMoveInput);
+            m_InputReader.OnSprintEvent.AddListener(HandleSprintInput);
+            m_InputReader.OnLookEvent.AddListener(HandleLookInput);
+            m_InputReader.OnJumpEvent.AddListener(HandleJumpInput);
+            m_InputReader.OnInteractEvent.AddListener(HandleInteractInput);
             m_InputReader.OnAttackEvent.AddListener(HandleAttack);
         }
 
@@ -49,11 +49,11 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
         {
             if (m_InputReader == null) return;
 
-            m_InputReader.OnMoveEvent.RemoveListener(HandleMove);
-            m_InputReader.OnSprintEvent.RemoveListener(HandleSprint);
-            m_InputReader.OnLookEvent.RemoveListener(HandleLook);
-            m_InputReader.OnJumpEvent.RemoveListener(HandleJump);
-            m_InputReader.OnInteractEvent.RemoveListener(HandleInteract);
+            m_InputReader.OnMoveEvent.RemoveListener(HandleMoveInput);
+            m_InputReader.OnSprintEvent.RemoveListener(HandleSprintInput);
+            m_InputReader.OnLookEvent.RemoveListener(HandleLookInput);
+            m_InputReader.OnJumpEvent.RemoveListener(HandleJumpInput);
+            m_InputReader.OnInteractEvent.RemoveListener(HandleInteractInput);
             m_InputReader.OnAttackEvent.RemoveListener(HandleAttack);
         }
 
@@ -65,30 +65,30 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
         /// So they send the inputs to the PlayerMovement script.
         /// </summary>
         /// <param name="moveInput"></param>
-        private void HandleMove(Vector2 moveInput)
+        private void HandleMoveInput(Vector2 moveInput)
         {
             if (m_PlayerMovement != null) m_PlayerMovement.MoveInput = moveInput;
         }
 
-        private void HandleSprint(bool isSprinting)
+        private void HandleSprintInput(bool isSprinting)
         {
             if (m_PlayerMovement != null) m_PlayerMovement.IsSprintingInput = isSprinting;
         }
 
-        private void HandleLook(Vector2 lookInput)
+        private void HandleLookInput(Vector2 lookInput)
         {
             if (m_PlayerMovement != null) m_PlayerMovement.LookInput = lookInput;
             if (m_FpsCam != null) m_FpsCam.LookInput = lookInput;
         }
 
-        private void HandleJump()
+        private void HandleJumpInput()
         {
             if (m_PlayerMovement != null) m_PlayerMovement.HandleJump();
         }
 
-        private void HandleInteract()
+        private void HandleInteractInput(bool isPressed) // DEĞİŞİKLİK: Parametre eklendi
         {
-            if (m_InteractionManager != null) m_InteractionManager.HandleInteract();
+            if (m_InteractionManager != null) m_InteractionManager.HandleInteract(isPressed);
         }
 
         private void HandleAttack(bool isPressed)

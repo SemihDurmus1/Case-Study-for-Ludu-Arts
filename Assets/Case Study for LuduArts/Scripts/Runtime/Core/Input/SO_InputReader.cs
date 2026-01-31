@@ -42,7 +42,7 @@ namespace LuduArts.InteractionSystem.Runtime.Input
         public UnityEvent<bool> OnSprintEvent;
         public UnityEvent<Vector2> OnLookEvent;
         public UnityEvent OnJumpEvent;
-        public UnityEvent OnInteractEvent;
+        public UnityEvent<bool> OnInteractEvent;
         public UnityEvent<bool> OnAttackEvent;
         public UnityEvent OnReloadEvent;
 
@@ -127,7 +127,8 @@ namespace LuduArts.InteractionSystem.Runtime.Input
 
         private void OnInteractPerformed(InputAction.CallbackContext ctx)
         {
-            if (ctx.performed) OnInteractEvent?.Invoke();
+            if (ctx.performed) OnInteractEvent?.Invoke(true);
+            else if (ctx.canceled) OnInteractEvent?.Invoke(false);
         }
 
         private void OnAttackPerformed(InputAction.CallbackContext ctx)

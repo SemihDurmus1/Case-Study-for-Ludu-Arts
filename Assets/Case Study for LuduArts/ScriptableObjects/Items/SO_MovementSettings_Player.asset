@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c50916232babd46b8b95bc9e6e5b8d, type: 3}
+  m_Name: SO_MovementSettings_Player
+  m_EditorClassIdentifier: Assembly-CSharp::Player.Movement.SO_PlayerMovementSettings
+  baseSpeed: 4
+  sprintMultiplier: 2
+  acceleration: 10
+  xSensivity: 10
+  ySensivity: 15
+  minPitch: -80
+  maxPitch: 80
+  jumpForce: 5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundDistance: 0.4
