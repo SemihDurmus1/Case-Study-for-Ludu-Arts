@@ -146,7 +146,14 @@ namespace LuduArts.InteractionSystem.Runtime.Player
             {
                 m_CurrentInteractable.OnInteract(gameObject);
                 m_IsInteractionHandled = true;
-                CancelHold();
+                
+                // Hide progress bar immediately after successful interaction
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.HideHoldProgress();
+                }
+                
+                m_IsHolding = false;
             }
         }
 
@@ -160,9 +167,11 @@ namespace LuduArts.InteractionSystem.Runtime.Player
                 }
                 
                 m_IsHolding = false;
+                
+                // Start smooth decay instead of instant reset
                 if (UIManager.Instance != null)
                 {
-                    UIManager.Instance.UpdateHoldProgress(0f);
+                    UIManager.Instance.StartProgressDecay();
                 }
             }
         }

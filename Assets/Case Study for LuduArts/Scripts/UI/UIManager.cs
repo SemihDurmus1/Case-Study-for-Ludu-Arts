@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public TMPro.TextMeshProUGUI interactionText;
+    public Slider holdProgressBar;
 
     private void Awake()
     {
@@ -27,8 +29,27 @@ public class UIManager : MonoBehaviour
         interactionText.text = "";
     }
 
-    public void UpdateHoldProgress(float time)
+    public void UpdateHoldProgress(float progressValue)
     {
+        interactionText.text = "";
+        if (holdProgressBar == null) return;
+        if (holdProgressBar.value >= 0f) holdProgressBar.gameObject.SetActive(true);
+        else holdProgressBar.gameObject.SetActive(false);
 
+        holdProgressBar.value = progressValue;
+    }
+
+    public void StartProgressDecay()
+    {
+        if (holdProgressBar == null) return;
+        holdProgressBar.gameObject.SetActive(false);
+        holdProgressBar.value = 0f;
+    }
+
+    public void HideHoldProgress()
+    {
+        if (holdProgressBar == null) return;
+        holdProgressBar.gameObject.SetActive(false);
+        holdProgressBar.value = 0f;
     }
 }

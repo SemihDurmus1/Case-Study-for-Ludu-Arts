@@ -67,7 +67,7 @@ So your role is to be a great Senior Game developer and create the system modula
 
 ---
 
-## Prompt 2: [Konu Başlığı]
+## Prompt 3: [Konu Başlığı]
 
 **Araç:** [Gemini 3 Pro Preview with Google AI Studio]
 **Tarih/Saat:** 20:26
@@ -81,8 +81,7 @@ IInteractable interface
 InteractionDetector (raycast veya trigger-based)
 Interaction range kontrolü
 Single interaction point (aynı anda tek nesne ile etkileşim)
-code
-Code
+
 **Teknik Detaylar:**
 - Oyuncu belirli bir mesafeden nesnelerle etkileşime geçebilmeli
 - Birden fazla interactable aynı range'de ise en yakın olanı seçilmeli
