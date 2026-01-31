@@ -37,14 +37,34 @@ namespace LuduArts.InteractionSystem.Runtime.Input
 
         #region Events
         
-        /// <summary> Triggered when the related inputs are performed. </summary>
+        /// <summary> Triggered when move input is received. </summary>
         public UnityEvent<Vector2> OnMoveEvent;
+        
+        /// <summary> Triggered when sprint input status changes. </summary>
         public UnityEvent<bool> OnSprintEvent;
+        
+        /// <summary> Triggered when look input is received. </summary>
         public UnityEvent<Vector2> OnLookEvent;
+        
+        /// <summary> Triggered when jump input is received. </summary>
         public UnityEvent OnJumpEvent;
+        
+        /// <summary> Triggered when interact input status changes. </summary>
         public UnityEvent<bool> OnInteractEvent;
+        
+        /// <summary> Triggered when attack input status changes. </summary>
         public UnityEvent<bool> OnAttackEvent;
-        public UnityEvent OnReloadEvent;
+
+        #endregion
+
+        #region Properties
+
+        public InputActionReference MoveAction => m_MoveAction;
+        public InputActionReference SprintAction => m_SprintAction;
+        public InputActionReference LookAction => m_LookAction;
+        public InputActionReference JumpAction => m_JumpAction;
+        public InputActionReference InteractAction => m_InteractAction;
+        public InputActionReference AttackAction => m_AttackAction;
 
         #endregion
 

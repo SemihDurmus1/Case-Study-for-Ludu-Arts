@@ -16,9 +16,9 @@ namespace LuduArts.InteractionSystem.Runtime.Core
         InteractionType InteractionType { get; }
 
         /// <summary>
-        /// Gets the percentage of progress for hold interactions (0 to 1).
+        /// Gets the duration required for hold interactions in seconds.
         /// </summary>
-        float InteractionProgress { get; }
+        float HoldDuration { get; }
 
         /// <summary>
         /// Gets whether the object is currently interactable.
@@ -30,10 +30,16 @@ namespace LuduArts.InteractionSystem.Runtime.Core
         #region Methods
 
         /// <summary>
-        /// Called when the interaction is triggered.
+        /// Called when the interaction is initiated or triggered.
         /// </summary>
         /// <param name="interactor">The GameObject that initiated the interaction.</param>
         void OnInteract(GameObject interactor);
+
+        /// <summary>
+        /// Called when the interaction input is released (primarily for Hold type).
+        /// </summary>
+        /// <param name="interactor">The GameObject that was interacting.</param>
+        void OnInteractCancel(GameObject interactor);
 
         /// <summary>
         /// Gets the prompt text to display to the player.

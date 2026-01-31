@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c50916232babd46b8b95bc9e6e5b8d, type: 3}
   m_Name: SO_MovementSettings_Player
   m_EditorClassIdentifier: Assembly-CSharp::Player.Movement.SO_PlayerMovementSettings
-  baseSpeed: 4
-  sprintMultiplier: 2
-  acceleration: 10
-  xSensivity: 10
-  ySensivity: 15
-  minPitch: -80
-  maxPitch: 80
-  jumpForce: 5
-  groundMask:
+  m_BaseSpeed: 4
+  m_SprintMultiplier: 2
+  m_Acceleration: 10
+  m_XSensitivity: 10
+  m_YSensitivity: 15
+  m_MinPitch: -80
+  m_MaxPitch: 80
+  m_JumpForce: 5
+  m_GroundMask:
     serializedVersion: 2
     m_Bits: 64
-  groundDistance: 0.4
+  m_GroundDistance: 0.4

@@ -19,7 +19,7 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
 
         [Header("Player System References")]
         [SerializeField] private PlayerMovementManager m_PlayerMovement;
-        [SerializeField] private PlayerInteractionManager m_InteractionManager;
+        [SerializeField] private InteractionDetector m_InteractionDetector;
 
         [Header("Visual & Camera References")]
         [SerializeField] private FPSCam m_FpsCam;
@@ -60,40 +60,58 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
         #endregion
 
         #region Event Handlers
-        /// <summary>
-        /// These scripts are apply the input values comes from the Input Reader to the Players itself.
-        /// So they send the inputs to the PlayerMovement script.
-        /// </summary>
-        /// <param name="moveInput"></param>
+
         private void HandleMoveInput(Vector2 moveInput)
         {
-            if (m_PlayerMovement != null) m_PlayerMovement.MoveInput = moveInput;
+            if (m_PlayerMovement != null)
+            {
+                m_PlayerMovement.MoveInput = moveInput;
+            }
         }
 
         private void HandleSprintInput(bool isSprinting)
         {
-            if (m_PlayerMovement != null) m_PlayerMovement.IsSprintingInput = isSprinting;
+            if (m_PlayerMovement != null)
+            {
+                m_PlayerMovement.IsSprintingInput = isSprinting;
+            }
         }
 
         private void HandleLookInput(Vector2 lookInput)
         {
-            if (m_PlayerMovement != null) m_PlayerMovement.LookInput = lookInput;
-            if (m_FpsCam != null) m_FpsCam.LookInput = lookInput;
+            if (m_PlayerMovement != null)
+            {
+                m_PlayerMovement.LookInput = lookInput;
+            }
+
+            if (m_FpsCam != null)
+            {
+                m_FpsCam.LookInput = lookInput;
+            }
         }
 
         private void HandleJumpInput()
         {
-            if (m_PlayerMovement != null) m_PlayerMovement.HandleJump();
+            if (m_PlayerMovement != null)
+            {
+                m_PlayerMovement.HandleJump();
+            }
         }
 
-        private void HandleInteractInput(bool isPressed) // DEĞİŞİKLİK: Parametre eklendi
+        private void HandleInteractInput(bool isPressed)
         {
-            if (m_InteractionManager != null) m_InteractionManager.HandleInteract(isPressed);
+            if (m_InteractionDetector != null)
+            {
+                m_InteractionDetector.HandleInteract(isPressed);
+            }
         }
 
         private void HandleAttack(bool isPressed)
         {
-            
+            if (isPressed && m_AnimateManager != null)
+            {
+                m_AnimateManager.TriggerAttack();
+            }
         }
 
         #endregion

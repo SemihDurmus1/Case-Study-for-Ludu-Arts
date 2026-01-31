@@ -70,6 +70,9 @@ namespace LuduArts.InteractionSystem.Runtime.Player.Movement
 
         #region Public Methods
 
+        /// <summary>
+        /// Triggers a jump if the player is currently grounded.
+        /// </summary>
         public void HandleJump()
         {
             CheckGrounded();

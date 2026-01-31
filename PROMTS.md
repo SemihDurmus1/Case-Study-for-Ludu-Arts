@@ -67,27 +67,56 @@ So your role is to be a great Senior Game developer and create the system modula
 
 ---
 
-## Prompt 3: ...
+## Prompt 2: [Konu Başlığı]
 
-[Diğer promptlar için aynı formatı kullanın]
+**Araç:** [Gemini 3 Pro Preview with Google AI Studio]
+**Tarih/Saat:** 20:26
 
----
+**Prompt:**
+```
+[Şimdi senden kapsamlı bir interaction sistemi istemekteyim. Önce planlayalım ve sonra uygulamaya geçelim. İstediğim Interaction Systemın temelleri şunlar:
+``
+Beklenen Yapı:
+IInteractable interface
+InteractionDetector (raycast veya trigger-based)
+Interaction range kontrolü
+Single interaction point (aynı anda tek nesne ile etkileşim)
+code
+Code
+**Teknik Detaylar:**
+- Oyuncu belirli bir mesafeden nesnelerle etkileşime geçebilmeli
+- Birden fazla interactable aynı range'de ise en yakın olanı seçilmeli
+- Etkileşim input'u configurable olmalı (Inspector'dan değiştirilebilir)
 
-## Genel Değerlendirme
+### 2. Interaction Types (En az 3 tür)
 
-### LLM'in En Çok Yardımcı Olduğu Alanlar
-1. [Alan 1]
-2. [Alan 2]
-3. [Alan 3]
+| Tür | Açıklama | Örnek Kullanım |
+|-----|----------|----------------|
+| **Instant** | Tek tuş basımı ile anında | Pickup item, button press |
+| **Hold** | Basılı tutma gerektiren | Chest açma, kapı kilidi kırma |
+| **Toggle** | Açık/kapalı durumlar | Light switch, door |
 
-### LLM'in Yetersiz Kaldığı Alanlar
-1. [Alan 1 - neden yetersiz kaldığı]
-2. [Alan 2]
+Her interaction type için base class veya interface oluşturulmalıdır. 
 
-### LLM Kullanımı Hakkında Düşüncelerim
-> [Bu case boyunca LLM kullanarak neler öğrendiniz?
-> LLM'siz ne kadar sürede bitirebilirdiniz?
-> Gelecekte LLM'i nasıl daha etkili kullanabilirsiniz?]
+Şimdi bu sistemi planlamaya başlayalım!]
+```
+
+**Alınan Cevap (Özet):**
+```
+[Mimari plan yapmaya başladı. Plana göre: 
+Temel katman: IInteractable. Her şeyin atası olacak. Player karşımızdaki objenin ne olduğunu bilmeyecek. Sadece interactable olduğunu bilecek ve interact sinyali gönderecek o kadar.
+Logic Katmanı: InteractionDetector: Bu script etraftaki interactableları tarayacak ve en uygun interactableı bulacak.
+World Katmanı: Objeler etrafata bulunacak ve onlarla E ile interact edeceğiz.
+]
+```
+
+**Nasıl Kullandım:**
+- [ ] Direkt kullandım
+- [X] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> [Mimari planlama emri verdiğim için güzel bir plan sundu. Bunu uygulaması için onay verdim ve kodları entegre ederek kullandım.]
 
 ---
 
