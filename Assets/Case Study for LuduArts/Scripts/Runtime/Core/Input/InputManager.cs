@@ -23,7 +23,6 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
 
         [Header("Visual & Camera References")]
         [SerializeField] private FPSCam m_FpsCam;
-        [SerializeField] private PlayerAnimateManager m_AnimateManager;
 
         #endregion
 
@@ -42,7 +41,6 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
             m_InputReader.OnLookEvent.AddListener(HandleLookInput);
             m_InputReader.OnJumpEvent.AddListener(HandleJumpInput);
             m_InputReader.OnInteractEvent.AddListener(HandleInteractInput);
-            m_InputReader.OnAttackEvent.AddListener(HandleAttack);
         }
 
         private void OnDisable()
@@ -54,7 +52,6 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
             m_InputReader.OnLookEvent.RemoveListener(HandleLookInput);
             m_InputReader.OnJumpEvent.RemoveListener(HandleJumpInput);
             m_InputReader.OnInteractEvent.RemoveListener(HandleInteractInput);
-            m_InputReader.OnAttackEvent.RemoveListener(HandleAttack);
         }
 
         #endregion
@@ -103,14 +100,6 @@ namespace LuduArts.InteractionSystem.Runtime.Core.Input
             if (m_InteractionDetector != null)
             {
                 m_InteractionDetector.HandleInteract(isPressed);
-            }
-        }
-
-        private void HandleAttack(bool isPressed)
-        {
-            if (isPressed && m_AnimateManager != null)
-            {
-                m_AnimateManager.TriggerAttack();
             }
         }
 

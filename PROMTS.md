@@ -37,7 +37,7 @@ So your role is to be a great Senior Game developer and create the system modula
 
 ---
 
-## Prompt 2: [Konu Başlığı]
+## Prompt 2: [Proje Planlaması Başlangıcı]
 
 **Araç:** [Gemini 3 Pro Preview with Google AI Studio]
 **Tarih/Saat:** 19:12
@@ -67,7 +67,7 @@ So your role is to be a great Senior Game developer and create the system modula
 
 ---
 
-## Prompt 3: [Konu Başlığı]
+## Prompt 3: [Interaction System Planlaması]
 
 **Araç:** [Gemini 3 Pro Preview with Google AI Studio]
 **Tarih/Saat:** 20:26
@@ -116,16 +116,63 @@ World Katmanı: Objeler etrafata bulunacak ve onlarla E ile interact edeceğiz.
 
 **Açıklama:**
 > [Mimari planlama emri verdiğim için güzel bir plan sundu. Bunu uygulaması için onay verdim ve kodları entegre ederek kullandım.]
+---
+
+## Prompt 4: [Interaction System Planlaması]
+
+**Araç:** [Gemini 3 Pro Preview with Google AI Studio]
+**Tarih/Saat:** 20:26
+
+**Prompt:**
+```
+[Şimdi de Interactable Objectler üretmemiz lazım:
+-Raycast Scan ile denk gelirsek InteractionTexti tetiklemeli
+-Interacta bastığımız zaman Baseden alıp özelleştirdiği kod çalışmalı
+-Eğer Interact tamamlanmazsa Cancel methoduna düşmeli.
+-Eğer Interact tamamlanırsa çeşitli animasyonlar veya progressler kullanmalıyız.
+]
+```
+
+**Alınan Cevap (Özet):**
+```
+[Chest, door, key gibi interactableları oluşturdu ama eksiklerle beraber.]
+```
+
+**Nasıl Kullandım:**
+- [ ] Direkt kullandım
+- [X] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> [Interactable objectleri temel şekilde verdi ve üzerine prosedürel animasyon eklemeleri yapıp devam ettim.]
 
 ---
 
-## Notlar
+## Prompt 4: [Interaction System Planlaması]
 
-- Her önemli LLM etkileşimini kaydedin
-- Copy-paste değil, anlayarak kullandığınızı gösterin
-- LLM'in hatalı cevap verdiği durumları da belirtin
-- Dürüst olun - LLM kullanımı teşvik edilmektedir
+**Araç:** [Gemini 3 Pro Preview with Google AI Studio]
+**Tarih/Saat:** 20:26
+
+**Prompt:**
+```
+[Interaction Base'ini daha detaylı yapmamız gerekiyor:
+-Enum ile interaction type
+-Key Hold value
+-OnInteract ve Cancel methodlarını yapmalıyız.
+]
+```
+
+**Alınan Cevap (Özet):**
+```
+[Interaction Base'ini düzgün bir şekilde verdi.]
+```
+
+**Nasıl Kullandım:**
+- [ ] Direkt kullandım
+- [X] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> [Verdiği kodu entegreler ile kullandım.]
 
 ---
-
-*Bu şablon Ludu Arts Unity Intern Case için hazırlanmıştır.*

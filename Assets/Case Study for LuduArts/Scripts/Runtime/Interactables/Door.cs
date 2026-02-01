@@ -31,7 +31,7 @@ namespace LuduArts.InteractionSystem.Runtime.Interactables
         private Quaternion m_ClosedRotation;
         private Quaternion m_OpenRotation;
         private bool m_IsRotating = false;
-        [SerializeField]private const float m_rotationIgnoreThreshold = 0.2f;
+        [SerializeField]private const float k_rotationIgnoreThreshold = 0.2f;
 
         #endregion
 
@@ -139,7 +139,7 @@ namespace LuduArts.InteractionSystem.Runtime.Interactables
 
             // Check if rotation is complete (within a small threshold)
             float angle = Quaternion.Angle(m_DoorHinge.localRotation, targetRotation);
-            if (angle < m_rotationIgnoreThreshold)
+            if (angle < k_rotationIgnoreThreshold)
             {
                 m_DoorHinge.localRotation = targetRotation;
                 m_IsRotating = false;
